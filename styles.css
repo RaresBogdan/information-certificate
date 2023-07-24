@@ -1,0 +1,72 @@
+/* Center the logo and the header */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .condo-clear-logo {
+    max-width: 150px; /* Adjust the value to make the logo smaller */
+  }
+  
+  h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 80px;
+    margin-top: 50px;
+  }
+  
+  /* Center the download button */
+  .download-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: rgb(97, 175, 224);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .download-btn:hover {
+    background-color: #4793d1;
+  }
+  
+  /* Your existing styles here */
+
+/* Signature pad styles */
+.signature-container {
+    text-align: left;
+  }
+  
+  .signature-pad {
+    border: 1px solid #ccc;
+  }
+  
+  .clear-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .clear-btn:hover {
+    background-color: #e0e0e0;
+  }
+
+#signatureCouncil {
+  border: 1px solid #ccc;
+  float: left;
+  margin-right: 20px; /* Adjust the margin as needed */
+}
+  
+  /* New styles for the second signature pad with ID "signatureSecond" */
+  #signatureSecond {
+    border: 1px solid #ccc;
+  }
