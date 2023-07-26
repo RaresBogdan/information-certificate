@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form B - Information Certificate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -27,9 +28,7 @@
                 <input type="text" name="Expected expenses exceed form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>
             </p>
         </li>
-        <li>
-          <p> Any amount by which the expenses of the strata corporation for the current fiscal year are expected to exceed the expenses budgeted for the fiscal year $ <input type="text" name="Expected expenses exceed form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>
-        </li>
+ 
         <li>
           <p> Any amount owing to the strata corporation by the owner of the strata lot described above <em>(other than an amount paid into court, or to the strata corporation in trust under section 114 of the Strata Property Act)</em> $ <input type="text" name="Amount owing form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>
           </p>
@@ -45,7 +44,8 @@
         <li>
           <p> Any amount that the owner of the strata lot described above is obligated to pay in the future for a special levy that has already been approved $ <input type="text" name="Special levy amount form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>
           </p>
-          <p>The payment is to be made by <input type="text" name="Special levy payment date form" required>. </p>
+          <p>The payment is to be made by <input type="text" id="select_date" class="date-input" placeholder="Select a date" required> </p>
+
         </li>
         <li>
           <p> Any amount by which the expenses of the strata corporation for the current fiscal year are expected to exceed the expenses budgeted for the fiscal year $ <input type="text" name="Expected expenses exceed form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>
@@ -60,21 +60,21 @@
           <label>
             <input type="radio" name="bylaw_amendment" value="no" required> No </label>
           <label>
-            <input type="radio" name="bylaw_amendment" value="yes" required> Yes </label>
+            <input type="radio" name="bylaw_amendment" value="yes" required> Yes </label> [attach copy of all amendments]
         </li>
         <li>
           <p> Are there any resolutions passed by a 3/4 vote or unanimous vote that are to be filed in the land title office but that have not yet been filed in the land title office?</p>
           <label>
             <input type="radio" name="bylaw_amendments" value="no" required> No </label>
           <label>
-            <input type="radio" name="bylaw_amendments" value="yes" required> Yes </label>
+            <input type="radio" name="bylaw_amendments" value="yes" required> Yes </label> [attach copy of all amendments]
         <li>
-          <p> Are there any winding-up resolutions that have been passed?</p>
+          <p> (h.1)Are there any winding-up resolutions that have been passed?</p>
           <label>
             <input type="radio" name="winding_up_resolutions" value="no" required> No </label>
           <label>
-            <input type="radio" name="winding_up_resolutions" value="yes" required> Yes <em></em>
-          </label>[attach copy of all resolutions]
+            <input type="radio" name="winding_up_resolutions" value="yes" required> Yes <em></em>[attach copy of all amendments]
+          </label>
         </li>
         <li>
           <p> Has notice been given for any resolutions, requiring a 3/4 vote, 80% vote, or unanimous vote or dealing with an amendment to the bylaws, that have not yet been voted on?</p>
@@ -148,7 +148,8 @@
               <em>[Provide background on the allocation of parking stalls referred to in whichever of the 3 preceding boxes have been selected and attach any applicable documents in the possession of the strata corporation.]</em>
             </p>
             <p>
-              <em>*Note: The allocation of a parking stall that is common property may be limited as short term exclusive use subject to section 76 of the Strata Property Act, or otherwise, and may therefore be subject to change in the future.</em>
+              <p><strong><em>Note: The allocation of a parking stall that is common property may be limited as short term exclusive use subject to section 76 of the Strata Property Act, or otherwise, and may therefore be subject to change in the future.</em></strong></p>
+
             </p>
           </div>
         </li>
@@ -199,7 +200,7 @@
               <em>[Provide background on the allocation of storage lockers referred to in whichever of the 3 preceding boxes have been selected and attach any applicable documents in the possession of the strata corporation.]</em>
             </p>
             <p>
-              <em>*Note: The allocation of a storage locker that is common property may be limited as short term exclusive use subject to section 76 of the Strata Property Act, or otherwise, and may therefore be subject to change in the future.</em>
+              <strong><em>*Note: The allocation of a storage locker that is common property may be limited as short term exclusive use subject to section 76 of the Strata Property Act, or otherwise, and may therefore be subject to change in the future.</strong></em>
             </p>
           </div>
         </li>
@@ -207,7 +208,7 @@
           <p>Provide a summary of the strata corporation's insurance coverage</p>
           <p>[Provide a summary of the insurance coverage on a separate sheet or sheets.]</p>
         </li>
-        <li>
+        
           <p>Required Attachments</p>
           <p>In addition to attachments mentioned above, section 59 (4) of the Strata Property Act requires that copies of the following must be attached to this Information Certificate:</p>
           <ul>
@@ -215,7 +216,7 @@
             <li>The current budget of the strata corporation</li>
             <li>The most recent depreciation report, if any, obtained by the strata corporation under section 94</li>
           </ul>
-        </li>
+        
         <div class="date-picker-container">
           <p></p>
           <p></p>
@@ -238,7 +239,7 @@
           <canvas id="signatureSecond" class="signature-pad" width="300" height="150"></canvas>
           <button id="clearSignatureSecond" class="clear-btn">Clear</button>
         </div>
-        <p>OR</p>
+        <p><strong>OR</strong></p>
         <p>Signature of Strata Manager, if authorized by the strata corporation:</p>
         <div class="signature-container">
           <label for="signatureThird"></label>

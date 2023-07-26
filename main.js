@@ -41,16 +41,24 @@ downloadBtn.addEventListener("click", () => {
 
 
 
-// Initialize the Pikaday date picker
-const dateInput = document.getElementById('certificate_date');
-const picker = new Pikaday({
-  field: dateInput,
-  format: 'YYYY-MM-DD',
-  toString(date) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString(undefined, options);
-  },
-});
+// Function to initialize the Pikaday date picker
+function initializeDatePicker(inputElementId) {
+  const dateInput = document.getElementById(inputElementId);
+  const picker = new Pikaday({
+    field: dateInput,
+    format: 'YYYY-MM-DD',
+    toString(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString(undefined, options);
+    },
+  });
+}
+
+// Call the function to initialize the Pikaday date picker for "Certificate Date"
+initializeDatePicker('certificate_date');
+
+// Call the function to initialize the Pikaday date picker for "Select Date"
+initializeDatePicker('select_date');
 
 // Initialize the signature pad
 const signatureCanvas = document.getElementById('signature');
