@@ -1,14 +1,14 @@
 body {
   font-family: "Roboto", sans-serif;
-  font-size: 15.5px;
-  padding: 1%;
+  font-size: 14.5px;
+  padding: 1.9%;
   text-align: justify;
   text-justify: inter-word;
   line-height: 1.5em;
 }
 
 .logo-container {
-  margin-top: -2%;
+  margin-top: -2.5%;
     margin-bottom: 1%;
     display: flex;
     justify-content: center;
@@ -108,9 +108,11 @@ body {
     top: 0;
   }
   
-
+  ol {
+    /* Adjust the margin or padding here to control the spacing */
+    padding-left: 0; /* Or you can use margin-left: 0; */
+  }
   
-
 
 
 
