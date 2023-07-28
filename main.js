@@ -65,22 +65,22 @@ const signatureCanvas = document.getElementById('signature');
 const signaturePad = new SignaturePad(signatureCanvas);
 
 // Clear signature when the "Clear" button is clicked
-const clearSignatureBtn = document.getElementById('clearSignature');
-clearSignatureBtn.addEventListener('click', (event) => {
-  event.preventDefault(); // Prevent the form from submitting
-  signaturePad.clear(); // Clear the signature canvas
-});
+// const clearSignatureBtn = document.getElementById('clearSignature');
+// clearSignatureBtn.addEventListener('click', (event) => {
+//   event.preventDefault(); // Prevent the form from submitting
+//   signaturePad.clear(); // Clear the signature canvas
+// });
 
 // Initialize the signature pad for the second signature pad with ID "signatureSecond"
 const signatureCanvasSecond = document.getElementById('signatureSecond');
 const signaturePadSecond = new SignaturePad(signatureCanvasSecond);
 
 // Clear signature when the "Clear" button is clicked for the second signature pad
-const clearSignatureBtnSecond = document.getElementById('clearSignatureSecond');
-clearSignatureBtnSecond.addEventListener('click', (event) => {
-  event.preventDefault(); // Prevent the form from submitting
-  signaturePadSecond.clear(); // Clear the signature canvas
-});
+// const clearSignatureBtnSecond = document.getElementById('clearSignatureSecond');
+// clearSignatureBtnSecond.addEventListener('click', (event) => {
+//   event.preventDefault(); // Prevent the form from submitting
+//   signaturePadSecond.clear(); // Clear the signature canvas
+// });
 
 
 // Initialize the signature pad for the second signature pad with ID "signatureSecond"
@@ -88,8 +88,8 @@ const signatureCanvasThird = document.getElementById('signatureThird');
 const signaturePadThird = new SignaturePad(signatureCanvasThird);
 
 // Clear signature when the "Clear" button is clicked for the second signature pad
-const clearSignatureBtnThird = document.getElementById('clearSignatureThird');
-clearSignatureBtnThird.addEventListener('click', (event) => {
-  event.preventDefault(); // Prevent the form from submitting
-  signaturePadThird.clear(); // Clear the signature canvas
-});
+// const clearSignatureBtnThird = document.getElementById('clearSignatureThird');
+// clearSignatureBtnThird.addEventListener('click', (event) => {
+//   event.preventDefault(); 
+//   signaturePadThird.clear();
+// });
