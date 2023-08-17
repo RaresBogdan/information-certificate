@@ -46,7 +46,6 @@
             <p>The payment is to be made by <input type="text" id="select_date" class="date-input" placeholder="Select a date">. </p>
             <p>Details:</p>
             <textarea name="parking_stall_details" rows="4" cols="50"></textarea>
-            
          </li>
          <li>
             <p> Any amount by which the expenses of the strata corporation for the current fiscal year are expected to exceed the expenses budgeted for the fiscal year $ <input type="text" name="Expected expenses exceed form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>.
@@ -54,9 +53,9 @@
          </li>
          <li>
             <p> Amount in the contingency reserve fund minus any expenditures which have already been approved but not yet taken from the fund $ <input type="text" name="Contingency reserve amount form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>.
-               <p>Details:</p>
-               <textarea name="parking_stall_details" rows="4" cols="50"></textarea>
-               <p>
+            <p>Details:</p>
+            <textarea name="parking_stall_details" rows="4" cols="50"></textarea>
+            <p>
             </p>
          </li>
          <li>
@@ -208,34 +207,41 @@
          <li>
             <p>Provide a summary of the strata corporation's insurance coverage</p>
             <p>[Provide a summary of the insurance coverage on a separate sheet or sheets.]
-               <p></p><label>
-                  <input type="radio" name="unvoted_resolutions" value="no" required> Attached </label>
-                  <label>
-                  <input type="radio" name="unvoted_resolutions" value="yes" required> N/A <em></em>
-                  </label>
+            <p></p>
+            <label>
+            <input type="radio" name="unvoted_resolutions" value="no" required> Attached </label>
+            <label>
+            <input type="radio" name="unvoted_resolutions" value="yes" required> N/A <em></em>
+            </label>
             </p>
          </li>
          <p><strong>Required Attachments</strong></p>
          <p>In addition to attachments mentioned above, section 59 (4) of the Strata Property Act requires that copies of the following must be attached to this Information Certificate:</p>
          <ul>
-            <p>• The rules of the strata corporation</p>
-            <label>
-               <input type="radio" name="unvoted_resolutions" value="no" required> Attached </label>
+            <li>
+               <p>The rules of the strata corporation</p>
                <label>
-               <input type="radio" name="unvoted_resolutions" value="yes" required> N/A <em></em>
-               </label>
-            <p>• The current budget of the strata corporation</p>
-            <label>
-               <input type="radio" name="unvoted_resolutions" value="no" required> Attached </label>
+               <input type="radio" name="rules_attachments" value="attached" required> Attached </label>
                <label>
-               <input type="radio" name="unvoted_resolutions" value="yes" required> N/A <em></em>
+               <input type="radio" name="rules_attachments" value="n/a" required> N/A <em></em>
                </label>
-            <p>• The most recent depreciation report, if any, obtained by the strata corporation under section 94.</p>
-            <label>
-               <input type="radio" name="unvoted_resolutions" value="no" required> Attached </label>
+            </li>
+            <li>
+               <p>The current budget of the strata corporation</p>
                <label>
-               <input type="radio" name="unvoted_resolutions" value="yes" required> N/A <em></em>
+               <input type="radio" name="budget_attachments" value="attached" required> Attached </label>
+               <label>
+               <input type="radio" name="budget_attachments" value="n/a" required> N/A <em></em>
                </label>
+            </li>
+            <li>
+               <p>The most recent depreciation report, if any, obtained by the strata corporation under section 94.</p>
+               <label>
+               <input type="radio" name="report_attachments" value="attached" required> Attached </label>
+               <label>
+               <input type="radio" name="report_attachments" value="n/a" required> N/A <em></em>
+               </label>
+            </li>
          </ul>
          <div class="date-picker-container">
             <p></p>
@@ -244,30 +250,37 @@
             <input type="text" id="certificate_date" name="Date" class="date-input" placeholder="Select a date" required>
          </div>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
+         <p></p>
          <p>Signature of Council Member:
-            <P class="signature-line"><p>________________________________</p></P>
+         <P class="signature-line">
+         <p>________________________________</p>
+         </P>
          <!-- <div class="signature-container">
             <label for="signature">
                <p></p>
             </label>
             <canvas id="signature" class="signature-pad" width="300" height="150"></canvas>
             <button id="clearSignature" class="clear-btn">Clear</button>
-         </div> -->
+            </div> -->
          Signature of Second Council Member (not required if council consists of only one member):
-         <P class="signature-line"><p>________________________________</p></P>
+         <P class="signature-line">
+         <p>________________________________</p>
+         </P>
          <!-- <div class="signature-container">
             <label for="signatureSecond"></label>
             <canvas id="signatureSecond" class="signature-pad" width="300" height="150"></canvas>
             <button id="clearSignatureSecond" class="clear-btn">Clear</button>
-         </div> -->
+            </div> -->
          <strong>OR</strong>
          <p>Signature of Strata Manager, if authorized by the strata corporation:
-            <P class="signature-line"><p>________________________________</p></P>
+         <P class="signature-line">
+         <p>________________________________</p>
+         </P>
          <!-- <div class="signature-container">
             <label for="signatureThird"></label>
             <canvas id="signatureThird" class="signature-pad" width="300" height="150"></canvas>
             <button id="clearSignatureThird" class="clear-btn">Clear</button>
-         </div> -->
+            </div> -->
       </form>
       <button class="download-btn">Download as PDF</button>
       <script src="main.js"></script>

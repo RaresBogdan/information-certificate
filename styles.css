@@ -4,13 +4,13 @@ body {
   padding: 1.9%;
   text-align: justify;
   text-justify: inter-word;
-  line-height: 1.5em;
+  line-height: 1.55em;
 }
   
   .certificate-header {
     /* border: red solid; */
     font-size: 15px;
-    margin-bottom: 15em;
+    margin-bottom: 12.5em;
     text-align: center;
   }
 
