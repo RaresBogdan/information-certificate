@@ -54,6 +54,20 @@ function initializeDatePicker(inputElementId) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("popup");
+  const closePopupButton = document.getElementById("closePopup");
+
+  // Show the pop-up on page load
+  popup.style.display = "block";
+
+  // Close the pop-up when the "Close" button is clicked
+  closePopupButton.addEventListener("click", function () {
+      popup.style.display = "none";
+  });
+});
+
+
 // Call the function to initialize the Pikaday date picker for "Certificate Date"
 initializeDatePicker('certificate_date');
 
