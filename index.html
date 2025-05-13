@@ -1,295 +1,1124 @@
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Form B - Information Certificate</title>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
-      <link rel="stylesheet" href="styles.css">
-   </head>
-   <body>
-      <div id="popup" class="popup">
-         <div class="popup-content">
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-             </p>
-             <button class="closepopupbutton" id="closePopup">Close</button>
-         </div>
-     </div>
-      </div>
-      <form onsubmit="validateForm()">
-         <div class="certificate-header">
-            <p id="form-b-heading">Form B</p>
-            [am. B.C. Regs. 238/2011, Schs. 2 and 3; 172/2016, s. (b); 206/2016, Sch. 1, s. 1; 6/2023, s. 6; 7/2023, Sch. 1.]
-            <strong>
-               <h2>INFORMATION CERTIFICATE</h2>
-            </strong>
-            <p>(Section 59)</p>
-         </div>
-         <p>The Owners, Strata Plan <input type="text" name="Registration number field" required> certify that the information contained in this certificate with respect to Strata Lot <input type="text" name="Strata lot number field" required> is correct as of the date of this certificate. </p>
-         <ol>
-         <li>
-            <p>Monthly strata fees payable by the owner of the strata lot described above $
-               <input type="text" name="Expected expenses exceed form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>
-            </p>
-         </li>
-         <li>
-            <p> Any amount owing to the strata corporation by the owner of the strata lot described above <em>(other than an amount paid into court, or to the strata corporation in trust under section 114 of the Strata Property Act)</em> $ <input type="text" name="Amount owing form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>.
-            </p>
-         </li>
-         <li>
-            <p> Are there any agreements under which the owner of the strata lot described above takes responsibility for expenses relating to alterations to the strata lot, the common property, or the common assets?</p>
-            <label>
-            <input type="radio" name="agreements" value="no" required> No </label>
-            <label>
-            <input type="radio" name="agreements" value="yes" required> Yes <em></em>
-            </label>[attach copy of all agreements]
-         </li>
-         <li>
-            <p> Any amount that the owner of the strata lot described above is obligated to pay in the future for a special levy that has already been approved $ <input type="text" name="Special levy amount form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>.
-            </p>
-            <p>The payment is to be made by <input type="text" id="select_date" class="date-input" placeholder="Select a date">. </p>
-            <p>Details:</p>
-            <textarea name="parking_stall_details" rows="4" cols="50"></textarea>
-         </li>
-         <li>
-            <p> Any amount by which the expenses of the strata corporation for the current fiscal year are expected to exceed the expenses budgeted for the fiscal year $ <input type="text" name="Expected expenses exceed form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>.
-            </p>
-         </li>
-         <li>
-            <p> Amount in the contingency reserve fund minus any expenditures which have already been approved but not yet taken from the fund $ <input type="text" name="Contingency reserve amount form" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numerical value." required>.
-            <p>Details:</p>
-            <textarea name="parking_stall_details" rows="4" cols="50"></textarea>
-            <p>
-            </p>
-         </li>
-         <li>
-            <p> Are there any amendments to the bylaws that are not yet filed in the land title office?</p>
-            <label>
-            <input type="radio" name="bylaw_amendment" value="no" required> No </label>
-            <label>
-            <input type="radio" name="bylaw_amendment" value="yes" required> Yes </label> [attach copy of all amendments]
-         </li>
-         <li>
-            <p> Are there any resolutions passed by a 3/4 vote or unanimous vote that are to be filed in the land title office but that have not yet been filed in the land title office?</p>
-            <label>
-            <input type="radio" name="bylaw_amendments" value="no" required> No </label>
-            <label>
-            <input type="radio" name="bylaw_amendments" value="yes" required> Yes </label> [attach copy of all amendments]
-            <p style="margin-left: -30px;"> (h.1) Are there any winding-up resolutions that have been passed?</p>
-            <label>
-            <input type="radio" name="winding_up_resolutions" value="no" required> No </label>
-            <label>
-            <input type="radio" name="winding_up_resolutions" value="yes" required> Yes <em></em>[attach copy of all amendments]
-            </label>
-         <li>
-            <p> Has notice been given for any resolutions, requiring a 3/4 vote, 80% vote, or unanimous vote or dealing with an amendment to the bylaws, that have not yet been voted on?</p>
-            <label>
-            <input type="radio" name="unvoted_resolutions" value="no" required> No </label>
-            <label>
-            <input type="radio" name="unvoted_resolutions" value="yes" required> Yes <em></em>
-            </label>[attach copy of all notices]
-         </li>
-         <li>
-            <p> Is the strata corporation party to any court proceeding, arbitration, or tribunal proceeding, and/or are there any judgments or orders against the strata corporation?</p>
-            <label>
-            <input type="radio" name="court_proceedings" value="no" required> No </label>
-            <label>
-            <input type="radio" name="court_proceedings" value="yes" required> Yes <em></em>
-            </label>[attach details]
-         </li>
-         <li>
-            <p> Have any notices or work orders been received by the strata corporation that remain outstanding for the strata lot, the common property, or the common assets?</p>
-            <label>
-            <input type="radio" name="outstanding_notices" value="no" required> No </label>
-            <label>
-            <input type="radio" name="outstanding_notices" value="yes" required> Yes </label>[attach copies of all notices or work orders]
-         </li>
-         <li>
-            <p> Repealed. [B.C. Reg. 6/2023, s. 6 (a).]</p>
-         </li>
-         <li>
-            <p> Are there any parking stall(s) allocated to the strata lot?</p>
-            <label>
-            <input type="radio" name="parking_stalls_allocated" value="no" required> No </label>
-            <label>
-            <input type="radio" name="parking_stalls_allocated" value="yes" required> Yes </label>
-            <div>
-               <p>(i) If no, complete the following by checking the correct box.</p>
-               <label>
-               <input type="checkbox" name="no_parking_stall" value="no_parking_stall_available"> No parking stall is available </label>
-               <br>
-               <label>
-               <input type="checkbox" name="no_parking_stall" value="parking_stall_within_common_property"> No parking stall is allocated to the strata lot but parking stall(s) within common property might be available </label>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melasa 100% Naturală | 100% Natural Molasses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        .fa-spinner {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .price-calculator {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .benefit-card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .benefit-card.expanded {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 800px;
+            z-index: 100;
+            height: auto;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .benefit-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 99;
+        }
+        .benefit-overlay.active {
+            display: block;
+        }
+        .close-expanded {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #b45309;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #d97706;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+        }
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 50px));
+        }
+        .blog-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .quantity-input {
+            -moz-appearance: textfield;
+        }
+        .contact-form {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .form-input {
+            transition: all 0.3s;
+            border: 1px solid #e5e7eb;
+        }
+        .form-input:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+            transition: all 0.3s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(180, 83, 9, 0.3);
+        }
+        .success-message {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .blur-sm {
+    filter: blur(4px);
+    opacity: 0.8;
+}
+.blur-sm:hover {
+    filter: blur(0);
+    opacity: 1;
+}
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T195ZFKGW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1T195ZFKGW');
+</script>
+<body class="font-sans bg-gray-50">
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <div class="flex space-x-2">
+            <button id="lang-ro" class="px-4 py-2 bg-amber-600 text-white rounded-l-lg font-medium">RO</button>
+            <button id="lang-en" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-r-lg font-medium">EN</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/40745307160" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-amber-800 font-bold text-xl" data-lang="ro">Melasa 100% Naturală</span>
+                    <span class="text-amber-800 font-bold text-xl hidden" data-lang="en">100% Natural Molasses</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Acasă</a>
+                    <a href="#home" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Home</a>
+                                        
+                    <a href="#about" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Despre Noi</a>
+                    <a href="#about" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">About Us</a>
+                                        
+                    <a href="#benefits" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Beneficii</a>
+                    <a href="#benefits" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Benefits</a>
+                                        
+                    <a href="#calculator" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Prețuri</a>
+                    <a href="#calculator" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Pricing</a>
+                                        
+                    <a href="#blog" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Blog</a>
+                    <a href="#blog" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Blog</a>
+                                        
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Contact</a>
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 hover:text-amber-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
-            <div>
-               <p>(ii) If yes, complete the following by checking the correct box(es) and indicating the parking stall(s) to which the checked box(es) apply.</p>
-               <label>
-               <input type="checkbox" name="parking_stall_status" value="part_of_strata_lot"> Parking stall(s) number(s) <input type="text" name="parking_stall_numbers" /> is/are part of the strata lot </label>
-               <br>
-               <label>
-               <input type="checkbox" name="parking_stall_status" value="separate_strata_lot"> Parking stall(s) number(s) <input type="text" name="separate_strata_lot_numbers" /> is/are separate strata lot(s) or part(s) of a strata lot <input type="text"> [strata lot number(s), if known, for each parking stall that is a separate strata lot or part of a separate strata lot] </label>
-               <br>
-               <label>
-               <input type="checkbox" name="parking_stall_status" value="limited_common_property"> Parking stall(s) number(s) <input type="text" name="limited_common_property_numbers" /> is/are limited common property </label>
-               <br>
-               <label>
-               <input type="checkbox" name="parking_stall_status" value="common_property"> Parking stall(s) number(s) <input type="text" name="common_property_numbers"/> is/are common property </label>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="#home" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Acasă</a>
+                <a href="#home" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Home</a>
+                                
+                <a href="#about" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Despre Noi</a>
+                <a href="#about" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">About Us</a>
+                                
+                <a href="#benefits" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Beneficii</a>
+                <a href="#benefits" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Benefits</a>
+                                
+                <a href="#calculator" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Prețuri</a>
+                <a href="#calculator" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Pricing</a>
+                                
+                <a href="#blog" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Blog</a>
+                <a href="#blog" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Blog</a>
+                                
+                <a href="#contact" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2" data-lang="ro">Contact</a>
+                <a href="#contact" class="nav-link text-gray-800 hover:text-amber-600 px-3 py-2 hidden" data-lang="en">Contact</a>
             </div>
-            <div>
-               <p>(iii) For each parking stall allocated to the strata lot that is common property, check the correct box and complete the information.</p>
-               <label>
-               <input type="checkbox" name="allocated_with_approval" value="allocated_with_approval"> Parking stall(s) number(s) <input type="text" name="allocated_with_approval_numbers" /> is/are allocated with strata council approval* </label>
-               <br>
-               <label>
-               <input type="checkbox" name="allocated_with_approval_rented" value="allocated_with_approval_rented"> Parking stall(s) number(s) <input type="text" name="allocated_with_approval_rented_numbers" /> is/are allocated with strata council approval and rented at $ <input type="text" pattern="[0-9]+(\.[0-9]+)?" > per month* </label>
-               <br>
-               <label>
-               <input type="checkbox" name="allocated_by_developer" value="allocated_by_developer"> Parking stall(s) number(s) <input type="text" name="allocated_by_developer_numbers" /> may have been allocated by owner developer assignment </label>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center text-center text-white">
+        <div class="max-w-4xl px-4 py-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-lang="ro">Melasă 100% Naturală Premium</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 hidden" data-lang="en">Premium 100% Natural Molasses</h1>
+                        
+            <p class="text-xl mb-8" data-lang="ro">Produs natural de înaltă calitate, obținut din sfeclă de zahăr și trestie de zahăr. Livrare rapidă în toată România în 2-3 zile lucrătoare.</p>
+            <p class="text-xl mb-8 hidden" data-lang="en">High quality natural product obtained from sugar beet and sugar cane. Fast delivery throughout Romania in 2-3 working days.</p>
+                        
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#calculator" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-lang="ro">Vezi Prețurile</a>
+                <a href="#calculator" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 hidden" data-lang="en">See Prices</a>
+                                
+                <a href="#contact" class="bg-white hover:bg-gray-100 text-amber-800 font-bold py-3 px-6 rounded-lg transition duration-300" data-lang="ro">Contactează-ne</a>
+                <a href="#contact" class="bg-white hover:bg-gray-100 text-amber-800 font-bold py-3 px-6 rounded-lg transition duration-300 hidden" data-lang="en">Contact Us</a>
             </div>
-            <div>
-               <p>Details:</p>
-               <textarea name="parking_stall_details" rows="4" cols="50"></textarea>
-               <p>
-                  <em>[Provide background on the allocation of parking stalls referred to in whichever of the 3 preceding boxes have been selected and attach any applicable documents in the possession of the strata corporation.]</em>
-               </p>
-               <p>
-               <p><strong><em>Note: The allocation of a parking stall that is common property may be limited as short term exclusive use subject to section 76 of the Strata Property Act, or otherwise, and may therefore be subject to change in the future.</em></strong></p>
-               </p>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <div class="section-divider"></div>
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="benefit-card bg-gray-50 p-6 text-center">
+                    <div class="text-amber-600 mb-4">
+                        <i class="fas fa-truck text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Livrare Rapidă</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Fast Delivery</h3>
+                    <p class="text-gray-600" data-lang="ro">Livrăm în toată România în 2-3 zile lucrătoare. Livrare internațională disponibilă.</p>
+                    <p class="text-gray-600 hidden" data-lang="en">We deliver throughout Romania in 2-3 working days. International shipping available.</p>
+                </div>
+                                
+                <!-- Benefit 2 -->
+                <div class="benefit-card bg-gray-50 p-6 text-center">
+                    <div class="text-amber-600 mb-4">
+                        <i class="fas fa-leaf text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">100% Natural</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">100% Natural</h3>
+                    <p class="text-gray-600" data-lang="ro">Produs pur, fără aditivi sau conservanți, obținut din surse naturale.</p>
+                    <p class="text-gray-600 hidden" data-lang="en">Pure product, without additives or preservatives, obtained from natural sources.</p>
+                </div>
+                                
+                <!-- Benefit 3 -->
+                <div class="benefit-card bg-gray-50 p-6 text-center">
+                    <div class="text-amber-600 mb-4">
+                        <i class="fas fa-chart-line text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Rentabilitate</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Profitability</h3>
+                    <p class="text-gray-600" data-lang="ro">Prețuri competitive pentru volume mari. Reduceri progresive pentru cantități mari.</p>
+                    <p class="text-gray-600 hidden" data-lang="en">Competitive prices for large volumes. Progressive discounts for large quantities.</p>
+                </div>
             </div>
-         </li>
-         <li>
-            <p> Are there any storage locker(s) allocated to the strata lot?</p>
-            <label>
-            <input type="radio" name="storage_lockers_allocated" value="no" required> No </label>
-            <label>
-            <input type="radio" name="storage_lockers_allocated" value="yes" required> Yes </label>
-            <div>
-               <p>(i) If no, complete the following by checking the correct box.</p>
-               <label>
-               <input type="checkbox" name="no_storage_locker" value="no_storage_locker_available"> No storage locker is available </label>
-               <br>
-               <label>
-               <input type="checkbox" name="no_storage_locker" value="storage_locker_within_common_property"> No storage locker is allocated to the strata lot but storage locker(s) within common property might be available </label>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1574323347407-f5a1d0dba42b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Molasses" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-amber-800" data-lang="ro">Despre Melasa Noastră</h2>
+                    <h2 class="text-3xl font-bold mb-6 text-amber-800 hidden" data-lang="en">About Our Molasses</h2>
+                                        
+                    <p class="text-gray-700 mb-4" data-lang="ro">Melasa noastră 100% naturală este obținută din sfeclă de zahăr și trestie de zahăr de înaltă calitate, fără aditivi sau conservanți. Procesul de producție păstrează toate proprietățile nutritive ale materiei prime.</p>
+                    <p class="text-gray-700 mb-4 hidden" data-lang="en">Our 100% natural molasses is obtained from high quality sugar beet and sugar cane, without additives or preservatives. The production process preserves all the nutritional properties of the raw material.</p>
+                                        
+                    <p class="text-gray-700 mb-4" data-lang="ro">Livrăm rapid în toată România, asigurându-ne că produsul ajunge la clienții noștri în condiții optime. Pentru comenzile internaționale, oferim soluții personalizate de transport.</p>
+                    <p class="text-gray-700 mb-4 hidden" data-lang="en">We deliver quickly throughout Romania, ensuring that the product reaches our customers in optimal conditions. For international orders, we offer customized transport solutions.</p>
+                                        
+                    <div class="mt-6">
+                        <a href="#" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded" data-lang="ro">Descarcă Fișa Tehnică</a>
+                        <a href="#" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded hidden" data-lang="en">Download Technical Sheet</a>
+                    </div>
+                </div>
             </div>
-            <div>
-               <p>(ii) If yes, complete the following by checking the correct box(es) and indicating the storage locker(s) to which the checked box(es) apply.</p>
-               <label>
-               <input type="checkbox" name="storage_locker_status" value="part_of_strata_lot"> Storage locker(s) number(s) <input type="text" name="storage_locker_numbers_part_of_strata_lot" /> is/are part of the strata lot </label>
-               <br>
-               <label>
-               <input type="checkbox" name="storage_locker_status" value="separate_strata_lot"> Storage locker(s) number(s) <input type="text" name="storage_locker_numbers_separate_strata_lot" /> is/are separate strata lot(s) or part(s) of a separate strata lot <input type="text"> <em>[strata lot number(s), if known, for each locker that is a separate strata lot or part of a separate strata lot]</em>
-               </label>
-               <br>
-               <label>
-               <input type="checkbox" name="storage_locker_status" value="limited_common_property"> Storage locker(s) number(s) <input type="text" name="storage_locker_numbers_limited_common_property" /> is/are limited common property </label>
-               <br>
-               <label>
-               <input type="checkbox" name="storage_locker_status" value="common_property"> Storage locker(s) number(s) <input type="text" name="storage_locker_numbers_common_property" /> is/are common property </label>
+        </div>
+    </section>
+
+    <!-- Benefits and Uses Section -->
+    <section id="benefits" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-amber-800" data-lang="ro">Beneficii și Utilizări</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center text-amber-800 hidden" data-lang="en">Benefits and Uses</h2>
+                        
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Benefit 1 -->
+                <div class="benefit-card bg-gray-50 p-6 rounded-lg">
+                    <div class="text-amber-600 mb-4">
+                        <i class="fas fa-horse-head text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Nutriție Animală</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Animal Nutrition</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Excelentă ca supliment nutritiv pentru vaci, oi, cai și alte animale. Îmbunătățește digestia și crește valoarea nutritivă a furajelor.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">Excellent as a nutritional supplement for cows, sheep, horses and other animals. Improves digestion and increases the nutritional value of feed.</p>
+                    <div class="more-content hidden">
+                        <p class="text-gray-600 mb-2" data-lang="ro">Melasa este bogată în minerale și vitamine esențiale care ajută la:</p>
+                        <p class="text-gray-600 mb-2 hidden" data-lang="en">Molasses is rich in essential minerals and vitamins that help:</p>
+                        <ul class="list-disc pl-5 text-gray-600 mb-4">
+                            <li data-lang="ro">Creșterea valorii energetice a furajelor</li>
+                            <li data-lang="ro">Îmbunătățirea palatabilității</li>
+                            <li data-lang="ro">Stimularea activității microbiologice în rumen</li>
+                            <li data-lang="ro">Reducerea prafului din furaje</li>
+                                                        
+                            <li class="hidden" data-lang="en">Increasing the energy value of feed</li>
+                            <li class="hidden" data-lang="en">Improving palatability</li>
+                            <li class="hidden" data-lang="en">Stimulating microbiological activity in the rumen</li>
+                            <li class="hidden" data-lang="en">Reducing dust in feed</li>
+                        </ul>
+                        <p class="text-gray-600" data-lang="ro">Recomandare de utilizare: 5-10% din rația zilnică.</p>
+                        <p class="text-gray-600 hidden" data-lang="en">Usage recommendation: 5-10% of daily ration.</p>
+                    </div>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 learn-more-btn" data-lang="ro">Află mai multe →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 learn-more-btn hidden" data-lang="en">Learn more →</a>
+                </div>
+                                
+                <!-- Benefit 2 -->
+                <div class="benefit-card bg-gray-50 p-6 rounded-lg">
+                    <div class="text-amber-600 mb-4">
+                        <i class="fas fa-seedling text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Agricultură Bio</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Organic Agriculture</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Utilizată ca îngrășământ natural și componentă în compost. Stimulează activitatea microbiană a solului și crește fertilitatea.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">Used as natural fertilizer and compost component. Stimulates soil microbial activity and increases fertility.</p>
+                    <div class="more-content hidden">
+                        <p class="text-gray-600 mb-2" data-lang="ro">Beneficii în agricultură:</p>
+                        <p class="text-gray-600 mb-2 hidden" data-lang="en">Benefits in agriculture:</p>
+                        <ul class="list-disc pl-5 text-gray-600 mb-4">
+                            <li data-lang="ro">Furnizează carbohidrați ușor disponibili microorganismelor benefice</li>
+                            <li data-lang="ro">Îmbunătățește structura solului</li>
+                            <li data-lang="ro">Crește capacitatea de reținere a apei</li>
+                            <li data-lang="ro">Stimulează creșterea plantelor</li>
+                                                        
+                            <li class="hidden" data-lang="en">Provides readily available carbohydrates to beneficial microorganisms</li>
+                            <li class="hidden" data-lang="en">Improves soil structure</li>
+                            <li class="hidden" data-lang="en">Increases water retention capacity</li>
+                            <li class="hidden" data-lang="en">Stimulates plant growth</li>
+                        </ul>
+                        <p class="text-gray-600" data-lang="ro">Aplicație recomandată: 1-2 litri melasă la 100 litri apă pentru irigare.</p>
+                        <p class="text-gray-600 hidden" data-lang="en">Recommended application: 1-2 liters molasses per 100 liters water for irrigation.</p>
+                    </div>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 learn-more-btn" data-lang="ro">Află mai multe →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 learn-more-btn hidden" data-lang="en">Learn more →</a>
+                </div>
+                                
+                <!-- Benefit 3 -->
+                <div class="benefit-card bg-gray-50 p-6 rounded-lg">
+                    <div class="text-amber-600 mb-4">
+                        <i class="fas fa-industry text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Bioenergie și Industrie</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Bioenergy and Industry</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Utilizată în producția de etanol, biogaz, distilare rom și îngrășăminte lichide. Materie primă valoroasă pentru diverse procese industriale.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">Used in the production of ethanol, biogas, rum distillation and liquid fertilizers. Valuable raw material for various industrial processes.</p>
+                    <div class="more-content hidden">
+                        <p class="text-gray-600 mb-2" data-lang="ro">Aplicații industriale:</p>
+                        <p class="text-gray-600 mb-2 hidden" data-lang="en">Industrial applications:</p>
+                        <ul class="list-disc pl-5 text-gray-600 mb-4">
+                            <li data-lang="ro">Substrat pentru producția de etanol</li>
+                            <li data-lang="ro">Materie primă în industria farmaceutică</li>
+                            <li data-lang="ro">Componentă în producția de drojdie</li>
+                            <li data-lang="ro">Ingredient în industria alimentară</li>
+                                                        
+                            <li class="hidden" data-lang="en">Substrate for ethanol production</li>
+                            <li class="hidden" data-lang="en">Raw material in pharmaceutical industry</li>
+                            <li class="hidden" data-lang="en">Component in yeast production</li>
+                            <li class="hidden" data-lang="en">Ingredient in food industry</li>
+                        </ul>
+                        <p class="text-gray-600" data-lang="ro">Conține peste 50% zahăruri reductoare, ideal pentru fermentație.</p>
+                        <p class="text-gray-600 hidden" data-lang="en">Contains over 50% reducing sugars, ideal for fermentation.</p>
+                    </div>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 learn-more-btn" data-lang="ro">Află mai multe →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 learn-more-btn hidden" data-lang="en">Learn more →</a>
+                </div>
+                                
+                <!-- Benefit 4 -->
+                <div class="benefit-card bg-gray-50 p-6 rounded-lg">
+                    <div class="text-amber-600 mb-4">
+                        <i class="fas fa-fish text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Pescuit Sportiv</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Sport Fishing</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Excelent atractant pentru pești, folosit în prepararea nadelor și boilies. Crește eficiența pescuitului prin atragerea peștilor.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">Excellent fish attractant, used in preparing baits and boilies. Increases fishing efficiency by attracting fish.</p>
+                    <div class="more-content hidden">
+                        <p class="text-gray-600 mb-2" data-lang="ro">Beneficii în pescuit:</p>
+                        <p class="text-gray-600 mb-2 hidden" data-lang="en">Fishing benefits:</p>
+                        <ul class="list-disc pl-5 text-gray-600 mb-4">
+                            <li data-lang="ro">Atrage peștii prin miros și gust dulce</li>
+                            <li data-lang="ro">Crește timpul de reținere a peștilor în zonă</li>
+                            <li data-lang="ro">Îmbunătățește dispersia mirosului în apă</li>
+                            <li data-lang="ro">Potențează efectul altor atractanți</li>
+                                                        
+                            <li class="hidden" data-lang="en">Attracts fish through sweet smell and taste</li>
+                            <li class="hidden" data-lang="en">Increases fish retention time in the area</li>
+                            <li class="hidden" data-lang="en">Improves scent dispersion in water</li>
+                            <li class="hidden" data-lang="en">Enhances the effect of other attractants</li>
+                        </ul>
+                        <p class="text-gray-600" data-lang="ro">Rețetă recomandată: 10-20% melasă în compoziția boilies.</p>
+                        <p class="text-gray-600 hidden" data-lang="en">Recommended recipe: 10-20% molasses in boilies composition.</p>
+                    </div>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 learn-more-btn" data-lang="ro">Află mai multe →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 learn-more-btn hidden" data-lang="en">Learn more →</a>
+                </div>
             </div>
-            <div>
-               <p>(iii) For each storage locker allocated to the strata lot that is common property, check the correct box and complete the information.</p>
-               <label>
-               <input type="checkbox" name="allocated_with_approval" value="allocated_with_approval"> Storage locker(s) number(s) <input type="text" name="allocated_with_approval_storage_locker_numbers" /> is/are allocated with strata council approval* </label>
-               <br>
-               <label>
-               <input type="checkbox" name="allocated_with_approval_rented" value="allocated_with_approval_rented"> Storage locker(s) number(s) <input type="text" name="allocated_with_approval_rented_storage_locker_numbers" /> is/are allocated with strata council approval and rented at $ <input type="text" pattern="[0-9]+(\.[0-9]+)?" > per month* </label>
-               <br>
-               <label>
-               <input type="checkbox" name="allocated_by_developer" value="allocated_by_developer"> Storage locker(s) number(s) <input type="text" name="allocated_by_developer_storage_locker_numbers" /> may have been allocated by owner developer assignment </label>
+        </div>
+    </section>
+
+    <!-- Expanded Benefit Overlay -->
+    <div class="benefit-overlay"></div>
+
+    <!-- Price Calculator Section -->
+    <section id="calculator" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-amber-800" data-lang="ro">Calculator Preț</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center text-amber-800 hidden" data-lang="en">Price Calculator</h2>
+                        
+            <div class="price-calculator max-w-3xl mx-auto p-8">
+                <div class="mb-6">
+                    <label for="quantity" class="block text-gray-700 font-medium mb-2" data-lang="ro">Cantitate (kg)</label>
+                    <label for="quantity" class="block text-gray-700 font-medium mb-2 hidden" data-lang="en">Quantity (kg)</label>
+                    <div class="relative">
+                        <input type="number" id="quantity" min="1" max="10000" value="50" class="quantity-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <div class="absolute right-0 top-0 h-full flex flex-col border-l border-gray-300">
+                            <button id="quantity-up" class="px-2 h-1/2 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-tr-lg">
+                                <i class="fas fa-chevron-up"></i>
+                            </button>
+                            <button id="quantity-down" class="px-2 h-1/2 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-br-lg">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-2" data-lang="ro">Preț pe kg</label>
+                    <label class="block text-gray-700 font-medium mb-2 hidden" data-lang="en">Price per kg</label>
+                    <div class="text-2xl font-bold text-amber-600" id="price-per-kg">3 Lei/kg</div>
+                </div>
+                                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-2" data-lang="ro">Preț Total</label>
+                    <label class="block text-gray-700 font-medium mb-2 hidden" data-lang="en">Total Price</label>
+                    <div class="text-3xl font-bold text-amber-800" id="total-price">150 Lei</div>
+                </div>
+                                
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                    <div class="flex">
+                        <div class="text-yellow-500">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-yellow-700" data-lang="ro">Prețurile includ TVA. Reduceri progresive pentru cantități mari:</p>
+                            <p class="text-sm text-yellow-700 hidden" data-lang="en">Prices include VAT. Progressive discounts for large quantities:</p>
+                            <ul class="list-disc pl-5 mt-1 text-sm text-yellow-700">
+                                <li data-lang="ro">< 100 kg: 3 Lei/kg</li>
+                                <li data-lang="ro">100-599 kg: 2 Lei/kg</li>
+                                <li data-lang="ro">600+ kg: 1.1 Lei/kg</li>
+                                <li data-lang="ro">5000+ kg: 0.92 Lei/kg</li>
+                                                                
+                                <li class="hidden" data-lang="en">< 100 kg: 3 Lei/kg</li>
+                                <li class="hidden" data-lang="en">100-599 kg: 2 Lei/kg</li>
+                                <li class="hidden" data-lang="en">600+ kg: 1.1 Lei/kg</li>
+                                <li class="hidden" data-lang="en">5000+ kg: 0.92 Lei/kg</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                                
+                <div class="text-center">
+                    <a href="https://wa.me/40745307160" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-lang="ro">
+                        <i class="fab fa-whatsapp mr-2"></i> Solicită Ofertă
+                    </a>
+                    <a href="https://wa.me/40745307160" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 hidden" data-lang="en">
+                        <i class="fab fa-whatsapp mr-2"></i> Request Quote
+                    </a>
+                </div>
             </div>
-            <div>
-               <p>Details:</p>
-               <textarea name="storage_locker_details" rows="4" cols="50"></textarea>
-               <p>
-                  <em>[Provide background on the allocation of storage lockers referred to in whichever of the 3 preceding boxes have been selected and attach any applicable documents in the possession of the strata corporation.]</em>
-               </p>
-               <p>
-                  <strong><em>*Note: The allocation of a storage locker that is common property may be limited as short term exclusive use subject to section 76 of the Strata Property Act, or otherwise, and may therefore be subject to change in the future.</strong></em>
-               </p>
+        </div>
+    </section>
+
+ <!-- Blog Section -->
+<section id="blog" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-12 text-center text-amber-800" data-lang="ro">Blog & Noutăți</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center text-amber-800 hidden" data-lang="en">Blog & News</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog Post 1 -->
+            <div class="blog-card bg-gray-50 rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Agriculture" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-amber-600 text-sm mb-2" data-lang="ro">Nutriție Animală</div>
+                    <div class="text-amber-600 text-sm mb-2 hidden" data-lang="en">Animal Nutrition</div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Melasa – Secretul Creșterii Lactației la Vaci Bio cu până la 30% Mai Mult Lapte</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Molasses - The Secret to Increasing Milk Yield in Organic Cows by Up to 30%</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Studii recente arată că melasa poate crește producția de lapte la vaci cu până la 28%. Descoperă cum ferma "Lapte Verde" a obținut rezultate remarcabile.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">Recent studies show that molasses can increase milk production in cows by up to 28%. Discover how "Lapte Verde" farm achieved remarkable results.</p>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800" data-lang="ro">Citește mai mult →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 hidden" data-lang="en">Read more →</a>
+                </div>
             </div>
-         </li>
-         <li>
-            <p>Provide a summary of the strata corporation's insurance coverage</p>
-            <p>[Provide a summary of the insurance coverage on a separate sheet or sheets.]
-            <p></p>
-            <label>
-            <input type="radio" name="unvoted_resolutions" value="no" required> Attached </label>
-            <label>
-            <input type="radio" name="unvoted_resolutions" value="yes" required> N/A <em></em>
-            </label>
-            </p>
-         </li>
-         <p><strong>Required Attachments</strong></p>
-         <p>In addition to attachments mentioned above, section 59 (4) of the Strata Property Act requires that copies of the following must be attached to this Information Certificate:</p>
-         <ul>
-            <li>
-               <p>The rules of the strata corporation</p>
-               <label>
-               <input type="radio" name="rules_attachments" value="attached" required> Attached </label>
-               <label>
-               <input type="radio" name="rules_attachments" value="n/a" required> N/A <em></em>
-               </label>
-            </li>
-            <li>
-               <p>The current budget of the strata corporation</p>
-               <label>
-               <input type="radio" name="budget_attachments" value="attached" required> Attached </label>
-               <label>
-               <input type="radio" name="budget_attachments" value="n/a" required> N/A <em></em>
-               </label>
-            </li>
-            <li>
-               <p>The most recent depreciation report, if any, obtained by the strata corporation under section 94.</p>
-               <label>
-               <input type="radio" name="report_attachments" value="attached" required> Attached </label>
-               <label>
-               <input type="radio" name="report_attachments" value="n/a" required> N/A <em></em>
-               </label>
-            </li>
-         </ul>
-         <div class="date-picker-container">
-            <p></p>
-            <p></p>
-            <label for="certificate_date">Date:</label>
-            <input type="text" id="certificate_date" name="Date" class="date-input" placeholder="Select a date" required>
-         </div>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
-         <p></p>
-         <p>Signature of Council Member:
-         <P class="signature-line">
-         <p>________________________________</p>
-         </P>
-         <!-- <div class="signature-container">
-            <label for="signature">
-               <p></p>
-            </label>
-            <canvas id="signature" class="signature-pad" width="300" height="150"></canvas>
-            <button id="clearSignature" class="clear-btn">Clear</button>
-            </div> -->
-         Signature of Second Council Member (not required if council consists of only one member):
-         <P class="signature-line">
-         <p>________________________________</p>
-         </P>
-         <!-- <div class="signature-container">
-            <label for="signatureSecond"></label>
-            <canvas id="signatureSecond" class="signature-pad" width="300" height="150"></canvas>
-            <button id="clearSignatureSecond" class="clear-btn">Clear</button>
-            </div> -->
-         <strong>OR</strong>
-         <p>Signature of Strata Manager, if authorized by the strata corporation:
-         <P class="signature-line">
-         <p>________________________________</p>
-         </P>
-         <!-- <div class="signature-container">
-            <label for="signatureThird"></label>
-            <canvas id="signatureThird" class="signature-pad" width="300" height="150"></canvas>
-            <button id="clearSignatureThird" class="clear-btn">Clear</button>
-            </div> -->
-      </form>
-      <button class="download-btn">Download as PDF</button>
-      <script src="main.js"></script>
-   </body>
+
+            <!-- Blog Post 2 -->
+            <div class="blog-card bg-gray-50 rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1553284965-e2818f2d492e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Animal Feed" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-amber-600 text-sm mb-2" data-lang="ro">Nutriție Animală</div>
+                    <div class="text-amber-600 text-sm mb-2 hidden" data-lang="en">Animal Nutrition</div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">De Ce Melasa Este Superalimentul Ascuns al Fermelor Bio: 6 Minerale Esențiale pe Care Le Oferă</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Why Molasses is the Hidden Superfood of Organic Farms: 6 Essential Minerals It Provides</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Melasa conține minerale cheie precum fier, calciu și magneziu care combat anemia și hipocalcemia la animale. Ferma "Solul Mamă" a redus cazurile de hipocalcemie la zero.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">Molasses contains key minerals like iron, calcium and magnesium that combat anemia and hypocalcemia in animals. "Solul Mamă" farm reduced hypocalcemia cases to zero.</p>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800" data-lang="ro">Citește mai mult →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 hidden" data-lang="en">Read more →</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="blog-card bg-gray-50 rounded-lg overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Fishing" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-amber-600 text-sm mb-2" data-lang="ro">Agricultură Sustenabilă</div>
+                    <div class="text-amber-600 text-sm mb-2 hidden" data-lang="en">Sustainable Agriculture</div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Cum Salvează Melasa Pământul: De la Furaje Sănătoase la Combaterea Biocombustibililor</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">How Molasses Saves the Earth: From Healthy Feed to Combating Biofuels</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Proiectul "Circular Feed" din Covasna demonstrează că melasa poate reduce emisiile de CO2 și îmbunătăți calitatea solului, oferind economii de 15.000 RON/an.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">The "Circular Feed" project in Covasna demonstrates that molasses can reduce CO2 emissions and improve soil quality, offering savings of 15,000 RON/year.</p>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800" data-lang="ro">Citește mai mult →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 hidden" data-lang="en">Read more →</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 4 -->
+            <div class="blog-card bg-gray-50 rounded-lg overflow-hidden blur-sm hover:blur-none transition-all duration-300">
+                <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1489&q=80" alt="Sugar Comparison" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-amber-600 text-sm mb-2" data-lang="ro">Nutriție Comparativă</div>
+                    <div class="text-amber-600 text-sm mb-2 hidden" data-lang="en">Comparative Nutrition</div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Melasa vs. Zahărul Rafinat: De Ce Fermierii Bio Îl Consideră 'Aurul Negru'</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Molasses vs. Refined Sugar: Why Organic Farmers Consider It 'Black Gold'</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Studiul de la Ferma "Dulce Plai" arată că porcii hrăniți cu melasă au avut o creștere cu 15% mai mare în greutate comparativ cu cei hrăniți cu sirop de porumb.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">The study from "Dulce Plai" Farm shows that pigs fed with molasses had a 15% greater weight gain compared to those fed with corn syrup.</p>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800" data-lang="ro">Citește mai mult →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 hidden" data-lang="en">Read more →</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 5 -->
+            <div class="blog-card bg-gray-50 rounded-lg overflow-hidden blur-sm hover:blur-none transition-all duration-300">
+                <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Animal Health" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-amber-600 text-sm mb-2" data-lang="ro">Sănătate Animală</div>
+                    <div class="text-amber-600 text-sm mb-2 hidden" data-lang="en">Animal Health</div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Cum Previne Melasa Bolile Digestive la Animale: Revoluția Fermelor Sănătoase</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">How Molasses Prevents Digestive Diseases in Animals: The Healthy Farm Revolution</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Ferma "EcoVită" a redus cazurile de acidoză de la 20% la doar 2% în 6 luni prin adăugarea de melasă în dieta animalelor, economisind 60% din costurile cu antibioticele.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">"EcoVită" Farm reduced acidosis cases from 20% to just 2% in 6 months by adding molasses to animal feed, saving 60% of antibiotic costs.</p>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800" data-lang="ro">Citește mai mult →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 hidden" data-lang="en">Read more →</a>
+                </div>
+            </div>
+
+            <!-- Blog Post 6 -->
+            <div class="blog-card bg-gray-50 rounded-lg overflow-hidden blur-sm hover:blur-none transition-all duration-300">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Farm Profit" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <div class="text-amber-600 text-sm mb-2" data-lang="ro">Management Fermă</div>
+                    <div class="text-amber-600 text-sm mb-2 hidden" data-lang="en">Farm Management</div>
+                    <h3 class="text-xl font-bold mb-3" data-lang="ro">Investiție Pe Termen Lung: Melasa Crește Profitul Fermelor Bio cu 20% în 2 Ani</h3>
+                    <h3 class="text-xl font-bold mb-3 hidden" data-lang="en">Long-Term Investment: Molasses Increases Organic Farm Profits by 20% in 2 Years</h3>
+                    <p class="text-gray-600 mb-4" data-lang="ro">Ferma "Lapte de Aur" și-a triplat profitul în 4 ani prin utilizarea melasei, de la 50.000 RON în 2019 la 120.000 RON în 2023, obținând certificarea BIO+ și acces la piețele din UE.</p>
+                    <p class="text-gray-600 mb-4 hidden" data-lang="en">"Lapte de Aur" Farm tripled its profit in 4 years by using molasses, from 50,000 RON in 2019 to 120,000 RON in 2023, obtaining BIO+ certification and access to EU markets.</p>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800" data-lang="ro">Citește mai mult →</a>
+                    <a href="#" class="text-amber-600 font-semibold hover:text-amber-800 hidden" data-lang="en">Read more →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-10">
+            <button id="show-more-btn" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-lang="ro">Vezi mai multe</button>
+            <button id="show-more-btn-en" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 hidden" data-lang="en">View more</button>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-amber-800" data-lang="ro">Contactează-ne</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center text-amber-800 hidden" data-lang="en">Contact Us</h2>
+                        
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" data-lang="ro">Informații de contact</h3>
+                    <h3 class="text-xl font-semibold mb-4 hidden" data-lang="en">Contact Information</h3>
+                                        
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-amber-600 mr-3 mt-1">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium" data-lang="ro">Telefon / WhatsApp:</p>
+                                <p class="font-medium hidden" data-lang="en">Phone / WhatsApp:</p>
+                                <a href="tel:+40745307160" class="text-gray-700 hover:text-amber-600">+40 745 307 160</a>
+                            </div>
+                        </div>
+                                                
+                        <div class="flex items-start">
+                            <div class="text-amber-600 mr-3 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium" data-lang="ro">Email:</p>
+                                <p class="font-medium hidden" data-lang="en">Email:</p>
+                                <a href="mailto:contact@melasanaturala.ro" class="text-gray-700 hover:text-amber-600">contact@melasanaturala.ro</a>
+                            </div>
+                        </div>
+                                                
+                        <div class="flex items-start">
+                            <div class="text-amber-600 mr-3 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium" data-lang="ro">Adresă:</p>
+                                <p class="font-medium hidden" data-lang="en">Address:</p>
+                                <p class="text-gray-700" data-lang="ro">România</p>
+                                <p class="text-gray-700 hidden" data-lang="en">Romania</p>
+                            </div>
+                        </div>
+                                                
+                        <div class="flex items-start">
+                            <div class="text-amber-600 mr-3 mt-1">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium" data-lang="ro">Program:</p>
+                                <p class="font-medium hidden" data-lang="en">Schedule:</p>
+                                <p class="text-gray-700" data-lang="ro">Luni - Vineri: 08:00 - 17:00</p>
+                                <p class="text-gray-700 hidden" data-lang="en">Monday - Friday: 08:00 - 17:00</p>
+                            </div>
+                        </div>
+                    </div>
+                                        
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold mb-3" data-lang="ro">Urmărește-ne pe:</h4>
+                        <h4 class="text-lg font-semibold mb-3 hidden" data-lang="en">Follow us on:</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-700 hover:text-amber-600 text-2xl">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="text-gray-700 hover:text-amber-600 text-2xl">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-700 hover:text-amber-600 text-2xl">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        <!-- Email Contact Form -->
+<div class="contact-form">
+    <h3 class="text-xl font-semibold mb-4" data-lang="ro">Trimite-ne un mesaj</h3>
+    <h3 class="text-xl font-semibold mb-4 hidden" data-lang="en">Send us a message</h3>
+    
+    <form id="contact-form" class="space-y-4">
+        <!-- Name Field -->
+        <div>
+            <label for="name" class="block text-gray-700 font-medium mb-1" data-lang="ro">Nume complet</label>
+            <label for="name" class="block text-gray-700 font-medium mb-1 hidden" data-lang="en">Full name</label>
+            <input type="text" id="name" name="name" required 
+                   class="form-input w-full px-4 py-2 rounded-lg focus:outline-none">
+        </div>
+        
+        <!-- Email Field -->
+        <div>
+            <label for="email" class="block text-gray-700 font-medium mb-1" data-lang="ro">Adresă de email</label>
+            <label for="email" class="block text-gray-700 font-medium mb-1 hidden" data-lang="en">Email address</label>
+            <input type="email" id="email" name="email" required 
+                   class="form-input w-full px-4 py-2 rounded-lg focus:outline-none">
+        </div>
+        
+        <!-- Phone Field -->
+        <div>
+            <label for="phone" class="block text-gray-700 font-medium mb-1" data-lang="ro">Număr de telefon</label>
+            <label for="phone" class="block text-gray-700 font-medium mb-1 hidden" data-lang="en">Phone number</label>
+            <input type="tel" id="phone" name="phone" 
+                   class="form-input w-full px-4 py-2 rounded-lg focus:outline-none">
+        </div>
+        
+        <!-- Subject Field -->
+        <div>
+            <label for="subject" class="block text-gray-700 font-medium mb-1" data-lang="ro">Subiect</label>
+            <label for="subject" class="block text-gray-700 font-medium mb-1 hidden" data-lang="en">Subject</label>
+            <select id="subject" name="subject" required 
+                    class="form-input w-full px-4 py-2 rounded-lg focus:outline-none">
+                <option value="" disabled selected data-lang="ro">Alege un subiect</option>
+                <option value="" disabled selected class="hidden" data-lang="en">Select a subject</option>
+                <option value="inquiry" data-lang="ro">Întrebare despre produse</option>
+                <option value="inquiry" class="hidden" data-lang="en">Product inquiry</option>
+                <option value="order" data-lang="ro">Comandă</option>
+                <option value="order" class="hidden" data-lang="en">Order</option>
+                <option value="partnership" data-lang="ro">Parteneriat</option>
+                <option value="partnership" class="hidden" data-lang="en">Partnership</option>
+                <option value="other" data-lang="ro">Altceva</option>
+                <option value="other" class="hidden" data-lang="en">Other</option>
+            </select>
+        </div>
+        
+        <!-- Message Field - Fixed Version -->
+     <div>
+    <label for="message" class="block text-gray-700 font-medium mb-1" data-lang="ro">Mesaj</label>
+    <label for="message" class="block text-gray-700 font-medium mb-1 hidden" data-lang="en">Message</label>
+    <textarea id="message" name="message" rows="4" required 
+              class="form-input w-full px-4 py-2 rounded-lg focus:outline-none" 
+              placeholder="Scrie mesajul tău aici..."></textarea>
+</div>
+        
+        <!-- Submit Button -->
+        <div class="pt-2">
+            <button type="submit" class="submit-btn w-full text-white font-bold py-3 px-6 rounded-lg">
+                <span data-lang="ro">Trimite mesaj</span>
+                <span class="hidden" data-lang="en">Send message</span>
+                <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+        </div>
+    </form>
+    
+    <!-- Success Message (initially hidden) -->
+    <div id="success-message" class="success-message mt-4 p-4 bg-green-100 text-green-700 rounded-lg hidden">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+            <span data-lang="ro">Mesajul tău a fost trimis cu succes! Vă vom contacta în cel mai scurt timp.</span>
+            <span class="hidden" data-lang="en">Your message has been sent successfully! We will contact you shortly.</span>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="ro">Melasa 100% Naturală</h3>
+                    <h3 class="text-xl font-bold mb-4 hidden" data-lang="en">100% Natural Molasses</h3>
+                    <p data-lang="ro">Produs natural de înaltă calitate pentru diverse utilizări. Livrare rapidă în toată România.</p>
+                    <p class="hidden" data-lang="en">High quality natural product for various uses. Fast delivery throughout Romania.</p>
+                </div>
+                                
+                <div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="ro">Link-uri utile</h3>
+                    <h3 class="text-xl font-bold mb-4 hidden" data-lang="en">Useful Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-amber-300" data-lang="ro">Acasă</a></li>
+                        <li><a href="#home" class="hover:text-amber-300 hidden" data-lang="en">Home</a></li>
+                                                
+                        <li><a href="#about" class="hover:text-amber-300" data-lang="ro">Despre Noi</a></li>
+                        <li><a href="#about" class="hover:text-amber-300 hidden" data-lang="en">About Us</a></li>
+                                                
+                        <li><a href="#benefits" class="hover:text-amber-300" data-lang="ro">Beneficii</a></li>
+                        <li><a href="#benefits" class="hover:text-amber-300 hidden" data-lang="en">Benefits</a></li>
+                                                
+                        <li><a href="#calculator" class="hover:text-amber-300" data-lang="ro">Prețuri</a></li>
+                        <li><a href="#calculator" class="hover:text-amber-300 hidden" data-lang="en">Pricing</a></li>
+                                                
+                        <li><a href="#blog" class="hover:text-amber-300" data-lang="ro">Blog</a></li>
+                        <li><a href="#blog" class="hover:text-amber-300 hidden" data-lang="en">Blog</a></li>
+                                                
+                        <li><a href="#contact" class="hover:text-amber-300" data-lang="ro">Contact</a></li>
+                        <li><a href="#contact" class="hover:text-amber-300 hidden" data-lang="en">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+                        
+            <div class="border-t border-amber-800 mt-8 pt-6 text-center">
+                <p data-lang="ro">© 2023 Melasa 100% Naturală. Toate drepturile rezervate.</p>
+                <p class="hidden" data-lang="en">© 2023 100% Natural Molasses. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Show more blog posts functionality
+document.getElementById('show-more-btn').addEventListener('click', function() {
+    document.querySelectorAll('.blog-card').forEach(card => {
+        card.classList.remove('blur-sm');
+    });
+    this.style.display = 'none';
+    document.getElementById('show-more-btn-en').style.display = 'none';
+});
+
+document.getElementById('show-more-btn-en').addEventListener('click', function() {
+    document.querySelectorAll('.blog-card').forEach(card => {
+        card.classList.remove('blur-sm');
+    });
+    this.style.display = 'none';
+    document.getElementById('show-more-btn').style.display = 'none';
+});
+    
+        // Language switcher functionality
+        document.getElementById('lang-ro').addEventListener('click', function() {
+            document.querySelectorAll('[data-lang="ro"]').forEach(el => el.classList.remove('hidden'));
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('lang-ro').classList.add('bg-amber-600', 'text-white');
+            document.getElementById('lang-ro').classList.remove('bg-gray-200', 'text-gray-800');
+            document.getElementById('lang-en').classList.add('bg-gray-200', 'text-gray-800');
+            document.getElementById('lang-en').classList.remove('bg-amber-600', 'text-white');
+            updatePrices('lei');
+        });
+
+        document.getElementById('lang-en').addEventListener('click', function() {
+            document.querySelectorAll('[data-lang="en"]').forEach(el => el.classList.remove('hidden'));
+            document.querySelectorAll('[data-lang="ro"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('lang-en').classList.add('bg-amber-600', 'text-white');
+            document.getElementById('lang-en').classList.remove('bg-gray-200', 'text-gray-800');
+            document.getElementById('lang-ro').classList.add('bg-gray-200', 'text-gray-800');
+            document.getElementById('lang-ro').classList.remove('bg-amber-600', 'text-white');
+            updatePrices('euro');
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Price calculator functionality
+        const quantityInput = document.getElementById('quantity');
+        const quantityUp = document.getElementById('quantity-up');
+        const quantityDown = document.getElementById('quantity-down');
+        const pricePerKg = document.getElementById('price-per-kg');
+        const totalPrice = document.getElementById('total-price');
+
+        // Quantity input change handler
+        quantityInput.addEventListener('input', function() {
+            const quantity = parseInt(this.value);
+            if (quantity < 1) this.value = 1;
+            if (quantity > 10000) this.value = 10000;
+            calculatePrice(parseInt(this.value));
+        });
+
+        // Quantity up button
+        quantityUp.addEventListener('click', function(e) {
+            e.preventDefault();
+            let quantity = parseInt(quantityInput.value);
+            if (quantity < 10000) {
+                quantityInput.value = quantity + 1;
+                calculatePrice(quantity + 1);
+            }
+        });
+
+        // Quantity down button
+        quantityDown.addEventListener('click', function(e) {
+            e.preventDefault();
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+                calculatePrice(quantity - 1);
+            }
+        });
+
+        function calculatePrice(quantity) {
+            let price;
+            let currency = document.getElementById('lang-ro').classList.contains('bg-amber-600') ? 'lei' : 'euro';
+                        
+            if (quantity < 100) {
+                price = currency === 'lei' ? 3 : 0.61;
+            } else if (quantity >= 100 && quantity < 600) {
+                price = currency === 'lei' ? 2 : 0.41;
+            } else if (quantity >= 600 && quantity < 5000) {
+                price = currency === 'lei' ? 1.1 : 0.22;
+            } else {
+                price = currency === 'lei' ? 0.92 : 0.19;
+            }
+                        
+            const total = (quantity * price).toFixed(2);
+                        
+            if (currency === 'lei') {
+                pricePerKg.textContent = price + ' Lei/kg';
+                totalPrice.textContent = total + ' Lei';
+            } else {
+                pricePerKg.textContent = '€' + price + '/kg';
+                totalPrice.textContent = '€' + total;
+            }
+        }
+
+        function updatePrices(currency) {
+            const quantity = parseInt(quantityInput.value);
+            calculatePrice(quantity);
+        }
+
+        // Benefit card expansion functionality
+        const benefitCards = document.querySelectorAll('.benefit-card');
+        const overlay = document.querySelector('.benefit-overlay');
+                
+        document.querySelectorAll('.learn-more-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const card = this.closest('.benefit-card');
+                const moreContent = card.querySelector('.more-content');
+                                
+                // Toggle expanded state
+                if (card.classList.contains('expanded')) {
+                    card.classList.remove('expanded');
+                    overlay.classList.remove('active');
+                    moreContent.classList.add('hidden');
+                } else {
+                    // First close any already expanded card
+                    document.querySelectorAll('.benefit-card.expanded').forEach(expandedCard => {
+                        expandedCard.classList.remove('expanded');
+                        expandedCard.querySelector('.more-content').classList.add('hidden');
+                    });
+                                        
+                    card.classList.add('expanded');
+                    overlay.classList.add('active');
+                    moreContent.classList.remove('hidden');
+                                        
+                    // Add close button
+                    const closeBtn = document.createElement('button');
+                    closeBtn.className = 'close-expanded';
+                    closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    closeBtn.addEventListener('click', function() {
+                        card.classList.remove('expanded');
+                        overlay.classList.remove('active');
+                        moreContent.classList.add('hidden');
+                        this.remove();
+                    });
+                    card.appendChild(closeBtn);
+                }
+            });
+        });
+
+        // Close expanded card when clicking overlay
+        overlay.addEventListener('click', function() {
+            document.querySelectorAll('.benefit-card.expanded').forEach(card => {
+                card.classList.remove('expanded');
+                card.querySelector('.more-content').classList.add('hidden');
+                card.querySelector('.close-expanded')?.remove();
+            });
+            this.classList.remove('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                                        
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+ // Contact Form Submission
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const successMessage = document.getElementById('success-message');
+    const isRO = document.getElementById('lang-ro').classList.contains('bg-amber-600');
+    
+    // Get the active message
+    const activeMessage = isRO 
+        ? document.getElementById('message') 
+        : document.getElementById('message-en');
+    
+    // Validate form
+    if (!form.checkValidity()) {
+        // If invalid, show the hidden textarea temporarily
+        if (activeMessage.classList.contains('hidden')) {
+            activeMessage.classList.remove('hidden');
+            activeMessage.focus();
+            setTimeout(() => {
+                activeMessage.classList.add('hidden');
+            }, 100);
+        }
+        return;
+    }
+
+    // Prepare form data
+    const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value || 'N/A',
+        subject: form.subject.value,
+        message: activeMessage.value,
+        language: isRO ? 'ro' : 'en',
+        timestamp: new Date().toISOString()
+    };
+
+    // Change button state
+    submitBtn.disabled = true;
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerHTML = isRO 
+        ? '<span>Se trimite...</span><i class="fas fa-spinner fa-spin ml-2"></i>' 
+        : '<span>Sending...</span><i class="fas fa-spinner fa-spin ml-2"></i>';
+
+    try {
+        // Replace with your actual Google Apps Script URL
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbxfowhmk5VCLdNHYhgzBKW1LULmYRLwqyx2KHKl60ZNfgeioJwMjkrVQYPHCM9h_ayNtw/exec';
+        
+        const response = await fetch(scriptUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) throw new Error('Network response was not ok');
+        
+        // Show success
+        successMessage.style.display = 'block';
+        form.reset();
+        
+        // Hide success after 5s
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 5000);
+    } catch (error) {
+        console.error('Error:', error);
+        alert(isRO 
+            ? 'Eroare la trimiterea mesajului. Vă rugăm încercați din nou.' 
+            : 'Error sending message. Please try again.');
+    } finally {
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+    }
+});
+
+        // Initialize calculator
+        calculatePrice(50);
+    </script>
+</body>
 </html>
